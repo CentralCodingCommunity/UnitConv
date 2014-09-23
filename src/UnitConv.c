@@ -55,7 +55,7 @@ int main(int argc, char *argv[]) {
 	while(1) {
 		if(ivalue[epos] == '=') {
 			break;
-		} if(ivalue[epos] == NULL) {
+		} else if(ivalue[epos] != '\0') {
 			exit(1);
 		}
 		epos++;
