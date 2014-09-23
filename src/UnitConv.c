@@ -8,9 +8,11 @@ int main(int argc, char *argv[]) {
 	
 	char *usage = "Usage: %s -i <unit>=<value> -o <unit>[:<unit>:<unit>...]\n";
 	
+	// Option variables
 	extern char *optarg;
 	extern int optind;
 	
+	// Flags and values for arguments
 	int hflag = 0;
 	int iflag = 0;
 	char *ivalue;
@@ -19,6 +21,7 @@ int main(int argc, char *argv[]) {
 	int err = 0;
 	int c;
 	
+	// Read arguments
 	while((c = getopt(argc, argv, "hi:o:")) != -1) {
 		switch(c) {
 			case 'h':
@@ -46,10 +49,17 @@ int main(int argc, char *argv[]) {
 		exit(1);
 	}
 	
-	printf("Input: %i\n", iflag);
-	printf("Input Value: %s\n", ivalue);
-	printf("Output: %i\n", oflag);
-	printf("Output Value: %s\n", ovalue);
+	// Identify '=' sign position
+	int epos = 0;
+	
+	while(1) {
+		if(ivalue[epos] == '=') {
+			break;
+		} if(ivalue[epos] == NULL) {
+			exit(1);
+		}
+		epos++;
+	}
 	
 	return 0;
 }
