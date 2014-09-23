@@ -12,4 +12,4 @@ $ make
 If there is something you would like to contribute, simply submit a pull request.
 
 ###License
-This code is licensed with the GNU GPLv3.
+This code is licensed with the [GNU GPLv3](/LICENSE).
