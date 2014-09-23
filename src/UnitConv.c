@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 char *version = "v0.1";
 
@@ -55,11 +56,17 @@ int main(int argc, char *argv[]) {
 	while(1) {
 		if(ivalue[epos] == '=') {
 			break;
-		} else if(ivalue[epos] != '\0') {
+		} else if(ivalue[epos] == '\0') {
+			printf("Improper usage of arguments.\n");
+			printf(usage, argv[0]);
 			exit(1);
 		}
 		epos++;
 	}
+	
+	char *input;
+	// This seems to cause a segmentation fault
+	//strncpy(input, ivalue, epos-1);
 	
 	return 0;
 }
