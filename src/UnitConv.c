@@ -64,9 +64,12 @@ int main(int argc, char *argv[]) {
 		epos++;
 	}
 	
-	char *input;
-	// This seems to cause a segmentation fault
-	//strncpy(input, ivalue, epos-1);
+	char input[epos-1];
+	int i;
+	while(i < epos-1) {
+		input[i] = ivalue[i];
+		i++;
+	}
 	
 	return 0;
 }
