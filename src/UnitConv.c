@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-char *version = "v0.1";
+char version[6] = "v0.1.0";
 
 int main(int argc, char *argv[]) {
 	printf("Welcome to UnitConv %s\n\n", version);
@@ -64,12 +64,15 @@ int main(int argc, char *argv[]) {
 		epos++;
 	}
 	
-	char input[epos-1];
-	int i;
-	while(i < epos-1) {
-		input[i] = ivalue[i];
-		i++;
-	}
+	free(usage);
+	
+	char unitin[epos];
+	
+	printf("%s\n", unitin);
+	
+	free(optarg);
+	free(ivalue);
+	free(ovalue);
 	
 	return 0;
 }
