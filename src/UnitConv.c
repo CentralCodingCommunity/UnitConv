@@ -2,12 +2,12 @@
 #include <stdlib.h>
 #include <string.h>
 
-char version[6] = "v0.1.0";
+char version[6] = "v0.1";
 
 int main(int argc, char *argv[]) {
 	printf("Welcome to UnitConv %s\n\n", version);
 	
-	char *usage = "Usage: %s -i <unit>=<value> -o <unit>[:<unit>:<unit>...]\n";
+	char usage[100] = "Usage: %s -i <unit>=<value> -o <unit>[:<unit>:<unit>...]\n";
 	
 	// Option variables
 	extern char *optarg;
@@ -64,15 +64,10 @@ int main(int argc, char *argv[]) {
 		epos++;
 	}
 	
-	free(usage);
-	
-	char unitin[epos];
+	char unitin[50];
+	memcpy(unitin, ivalue, epos);
 	
 	printf("%s\n", unitin);
-	
-	free(optarg);
-	free(ivalue);
-	free(ovalue);
 	
 	return 0;
 }
