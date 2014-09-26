@@ -1,10 +1,11 @@
 SOURCEDIR=src
+MAINFILE=$(SOURCEDIR)/UnitConv.c
 BUILDDIR=bin
-BINFILE=unitconv
+BINFILE=$(BUILDDIR)/unitconv
 
 all:
 	mkdir -p $(BUILDDIR)
-	gcc $(SOURCEDIR)/UnitConv.c -o $(BUILDDIR)/$(BINFILE)
+	gcc $(MAINFILE) -o $(BINFILE)
 
 clean:
 	rm -rf $(BUILDDIR)
