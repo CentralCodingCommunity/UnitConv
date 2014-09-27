@@ -9,7 +9,7 @@ $ make
 ```
 
 ###Contributing
-If there is something you would like to contribute, simply submit a pull request. If you wish, you can also add your name, alias, and website to the [CONTRIBUTORS](/CONTRIBUTORS) file.
+If there is something you would like to contribute, simply submit a pull request. If you wish, you can also add your name, alias, and website to the [CONTRIBUTORS](/CONTRIBUTORS.md) file.
 
 ###License
 This code is licensed with the [GNU GPLv3](/LICENSE).
