@@ -86,7 +86,7 @@ int main(int argc, char *argv[]) {
 	
 	printf("%s\n", unitin);
 	
-	int ovalsize = 0;
+	/*int ovalsize = 0;
 	while(1) {
 		if(ovalue[ovalsize] == '\0') {
 			break;
@@ -94,7 +94,7 @@ int main(int argc, char *argv[]) {
 		ovalsize++;
 	}
 	
-	char tmpoutarg[ovalsize] = ovalue;
+	char tmpoutarg[ovalsize] = ovalue;*/
 	
 	return 0;
 }
