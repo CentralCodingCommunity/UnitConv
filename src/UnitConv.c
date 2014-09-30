@@ -24,7 +24,7 @@ char version[6] = "v0.1";
 int main(int argc, char *argv[]) {
 	printf("Welcome to UnitConv %s\n\n", version);
 	
-	char usage[100] = "Usage: %s -i <unit>=<value> -o <unit>[:<unit>:<unit>...]\n";
+	char usage[100] = "Usage: %s -i <unit>=<value> -o <unit>\n";
 	
 	// Option variables
 	extern char *optarg;
@@ -84,17 +84,22 @@ int main(int argc, char *argv[]) {
 	char unitin[100];
 	memcpy(unitin, ivalue, epos);
 	
-	printf("%s\n", unitin);
+	printf("Input unit: %s\n", unitin);
 	
-	/*int ovalsize = 0;
+	
+	int osize = 0;
 	while(1) {
-		if(ovalue[ovalsize] == '\0') {
+		if(ovalue[osize] == '\0') {
+			osize++;
 			break;
 		}
-		ovalsize++;
+		osize++;
 	}
 	
-	char tmpoutarg[ovalsize] = ovalue;*/
+	char unitout[100];
+	memcpy(unitout, ovalue, osize);
+	
+	printf("Output unit: %s\n", unitout);
 	
 	return 0;
 }
