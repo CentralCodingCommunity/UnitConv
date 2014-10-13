@@ -86,7 +86,6 @@ int main(int argc, char *argv[]) {
 	
 	printf("Input unit: %s\n", unitin);
 	
-	
 	int osize = 0;
 	while(1) {
 		if(ovalue[osize] == '\0') {
