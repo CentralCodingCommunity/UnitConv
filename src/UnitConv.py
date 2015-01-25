@@ -17,15 +17,18 @@
 ##
 import getopt, sys
 
+# Version tag
 version = "v0.1"
 
+### PREDEFINED FUNCTIONS ###
 def printUsage():
-	print "Usage:", sys.argv[0], "[option] [<measure_argument> <input><input_unit>:<output_unit>]"
+	print "Usage:", sys.argv[0], "[option] | [<measurement> <input><input_unit>:<output_unit>]"
 
 def printHelp():
 	printUsage()
 	print """Still working on this bit."""
 
+### MAIN FUNCTION ###
 def main(argv):
 	try:
 		opts, args = getopt.getopt(argv, "ht:v", ["help", "temp=", "version"])
@@ -40,8 +43,9 @@ def main(argv):
 		elif opt in ("-v", "--version"):
 			print "UnitConv", version
 			sys.exit(0)
-		elif opt in ("-v", "--temp"):
+		elif opt in ("-t", "--temp"):
 			print "You chose temparature!!!"
 
+### CALL MAIN FUNCTION ###
 if __name__ == "__main__":
 	main(sys.argv[1:])
