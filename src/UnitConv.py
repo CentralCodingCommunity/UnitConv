@@ -26,9 +26,11 @@ ounit = None
 
 
 ### HELP FUNCTIONS ###
+# How to use the command
 def printUsage():
 	print "Usage:", sys.argv[0], "[option] | [<measurement> <input><input_unit>:<output_unit>]"
 
+# Other elements
 def printHelp():
 	printUsage()
 	print """
@@ -66,24 +68,29 @@ def massConv(arg):
 
 # Convert temperature
 def tempConv(arg):
+	# Check if colon exists
 	colonPos = arg.find(":", 2)
 	if colonPos == -1:
 		print "Incorrect usage."
 		printUsage()
 		sys.exit(2)
+	# Extract unit substring from arg
 	iunit = arg[colonPos-1]
 	ounit = arg[colonPos+1]
 
+	# Make sure the units are not the same
 	if iunit == ounit:
 		print "Nice joke, these units are the same."
 		sys.exit(2)
 
+	# Make sure what is in from the the units is a number
 	try:
 		num = float(arg[:colonPos-1])
 	except ValueError:
 		print "You did not enter a number before the unit."
 		sys.exit(2)
-	
+
+	# Do the conversion
 	if iunit == "C" and ounit == "F":
 		print (num * (9.0/5.0)) + 32
 	elif iunit == "C" and ounit == "K":
@@ -113,12 +120,14 @@ def volConv(arg):
 
 ### MAIN FUNCTION ###
 def main(argv):
+	# Check for correct argument usage
 	try:
 		opts, args = getopt.getopt(argv, "a:d:m:ht:s:v:", ["area=", "dist=", "help", "mass=", "temp=", "speed=", "version"])
 	except getopt.GetoptError:
 		print "Incorrect usage.\nFor help use the -h or --help option."
 		sys.exit(2)
 
+	# Run command based on arguments given.
 	for opt, arg in opts:
 		if opt in ("-h", "--help"):
 			printHelp()
@@ -137,9 +146,8 @@ def main(argv):
 		elif opt in ("-v", "--vol"):
 			volConv(arg)
 
-		sys.exit(0)
-
 
 ### CALL MAIN FUNCTION ###
 if __name__ == "__main__":
+	# Run the main function
 	main(sys.argv[1:])
