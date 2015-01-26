@@ -24,8 +24,11 @@ version = "v0.1"
 measurement = ""
 
 # Input and output units
-iunit = ""
-ounit = ""
+iunit = None
+ounit = None
+
+### UNIT ARRAYS ###
+tempUnits = ["C", "F", "K"];
 
 ### PREDEFINED FUNCTIONS ###
 def printUsage():
@@ -63,12 +66,42 @@ def massConv(arg):
 	print "Mass..."
 
 def tempConv(arg):
-	print "You chose temperature with argument", arg
 	colonPos = arg.find(":", 2)
 	if colonPos == -1:
 		print "Incorrect usage."
 		printUsage()
 		sys.exit(2)
+	iunit = arg[colonPos-1]
+	ounit = arg[colonPos+1]
+
+	if iunit == ounit:
+		print "Nice joke, these units are the same."
+		sys.exit(2)
+
+	try:
+		num = float(arg[:colonPos-1])
+	except ValueError:
+		print "You did not enter a number before the unit."
+		sys.exit(2)
+	
+	if iunit == "C" and ounit == "F":
+		print (num * (9.0/5.0)) + 32
+	elif iunit == "C" and ounit == "K":
+		print num - 273
+	elif iunit == "F" and ounit == "C":
+		print (num - 32) * (5.0/9.0)
+	elif iunit == "F" and ounit == "K":
+		print (num - 32) * (5.0/9.0) - 273
+	elif iunit == "K" and ounit == "C":
+		print num + 273
+	elif iunit == "K" and ounit == "F":
+		print ((num - 273) * (9.0/5.0)) + 32
+	else:
+		print "One or more of the units (", iunit, ",", ounit, ") entered is not valid.\nUse the -h or --help option for a list of valid units."
+		sys.exit(2)
+
+	sys.exit(0)
+
 
 def speedConv(arg):
 	print "Speed..."
