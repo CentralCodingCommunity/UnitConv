@@ -18,19 +18,14 @@
 import getopt, sys
 
 # Version tag
-version = "v0.1"
-
-# What measurement are we converting in
-measurement = ""
+version = "v0.1-alpha0"
 
 # Input and output units
 iunit = None
 ounit = None
 
-### UNIT ARRAYS ###
-tempUnits = ["C", "F", "K"];
 
-### PREDEFINED FUNCTIONS ###
+### HELP FUNCTIONS ###
 def printUsage():
 	print "Usage:", sys.argv[0], "[option] | [<measurement> <input><input_unit>:<output_unit>]"
 
@@ -55,16 +50,21 @@ Other Arguments:
 Example:
 	""", sys.argv[0], """ --temp 32F:C"""
 
+
 ### CONVERSION FUNCTIONS ###
+# Convert area
 def areaConv(arg):
 	print "Area..."
 
+# Convert distance
 def distConv(arg):
 	print "Distance..."
 
+# Convert mass
 def massConv(arg):
 	print "Mass..."
 
+# Convert temperature
 def tempConv(arg):
 	colonPos = arg.find(":", 2)
 	if colonPos == -1:
@@ -102,12 +102,14 @@ def tempConv(arg):
 
 	sys.exit(0)
 
-
+# Convert speed/velocity
 def speedConv(arg):
 	print "Speed..."
 
+# Convert volume
 def volConv(arg):
 	print "Volume..."
+
 
 ### MAIN FUNCTION ###
 def main(argv):
@@ -136,6 +138,7 @@ def main(argv):
 			volConv(arg)
 
 		sys.exit(0)
+
 
 ### CALL MAIN FUNCTION ###
 if __name__ == "__main__":
