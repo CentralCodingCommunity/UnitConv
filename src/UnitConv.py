@@ -116,7 +116,7 @@ def main(argv):
 	try:
 		opts, args = getopt.getopt(argv, "a:d:m:ht:s:v:", ["area=", "dist=", "help", "mass=", "temp=", "speed=", "version"])
 	except getopt.GetoptError:
-		printUsage()
+		print "Incorrect usage.\nFor help use the -h or --help option."
 		sys.exit(2)
 
 	for opt, arg in opts:
