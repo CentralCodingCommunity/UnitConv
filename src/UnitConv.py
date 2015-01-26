@@ -64,6 +64,11 @@ def massConv(arg):
 
 def tempConv(arg):
 	print "You chose temperature with argument", arg
+	colonPos = arg.find(":", 2)
+	if colonPos == -1:
+		print "Incorrect usage."
+		printUsage()
+		sys.exit(2)
 
 def speedConv(arg):
 	print "Speed..."
